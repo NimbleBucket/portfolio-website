@@ -5,6 +5,7 @@ import '../../animate.css';
 import store from '../../store';
 import { addTimer } from '../../actions/timerset-actions';
 import Timer from '../views/timer-list';
+import {Button,CardPanel, Row, Col} from 'react-materialize';
 //import TimerSetLayout from '../layouts/timerset-layout';
 
 class TimerSetContainer extends Component{
@@ -32,7 +33,9 @@ class TimerSetContainer extends Component{
       <p>TimerClockPage</p>
       <div className="Green-Btn Button animated bounce" onClick = {this.AddTimer} >Add<br />currentTimer: {this.props.currentTimer}
       </div>
+      <Row>
       {myTimers}
+      </Row>
       </div>
     );
   }

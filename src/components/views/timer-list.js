@@ -4,6 +4,7 @@ import '../../App.css';
 import '../../animate.css';
 import store from '../../store';
 import { removeTimer, setActiveTimer, updateTimer } from '../../actions/timerset-actions';
+import {Button,CardPanel, Row, Col} from 'react-materialize';
 
 class Timer extends Component{
   constructor(props)
@@ -64,9 +65,15 @@ class Timer extends Component{
   {
     return (
       <div>
-        <div onClick={this.playPause} className={this.props.timer.active?"animated bounce":""}>{this.props.timer.id}: {Math.floor(this.props.timer.time/1000)}</div>
-        <span onClick={this.removeTimer}>X</span>
-      </div>
+        <Col s={2}>
+          <CardPanel  className="teal lighten-4 black-text">
+            <div>{Math.floor(this.props.timer.time/1000)}</div>
+            <span onClick={this.removeTimer}>X</span>
+            <Button floating icon={((this.props.timer.active)?"pause":"play_arrow")} waves="light" className='green' onClick={this.playPause} small>
+            </Button>
+          </CardPanel>
+        </Col>
+    </div>
     );
   }
 }
