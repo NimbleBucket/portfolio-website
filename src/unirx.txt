@@ -1,0 +1,8 @@
+Favorite Unity Assets
+MessageKit
+-What is it?
+  MessageKit is a lightweight Publisher Subscriber system built by Prime31 and freely available. It allows a
+-Why I like it?
+  I've used it in quite a few projects. It is easy to use, allows me to keep my code loosely coupled. I like how lightweight it is I think the full implementation of MessageKit is just under 300 lines of code.
+-Issues with it
+  My main issue with MessageKit is about some functionality it doesn't have. There is currently no way to filter I would really like to be able to publish a message to a specific game object, but unfortunately I can't do that. The only way I have been able to figure out how to get around that is by passing the object or component that I want to send the message to as an argument, and then check for the object or component against what was passed in the function. Not a great way to do it. It makes the code too WET for my taste, but it is the only way I could figure to do it without making any fundamental changes to MessageKit itself. Another issue I have with it is that it only takes ints as the Message definition. I like that it is ints over strings, but I like to us an enum to define my possible messages, and I would prefer to not have to cast it every time I post a message. I think if it took enums instead of ints and had a different message table for each enum type then it would be slightly more usable.

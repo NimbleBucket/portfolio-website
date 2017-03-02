@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/*import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import '../App.css';
 
@@ -12,10 +12,13 @@ class TimerClockPage extends Component{
     };
     this.AddTimer = this.AddTimer.bind(this);
     this.SetActiveTimer = this.SetActiveTimer.bind(this);
+    this.RemoveTimer = this.RemoveTimer.bind(this);
   }
   AddTimer()
   {
-    var newId = "Timer"+(this.state.timers.length+1);
+    let newId = "Timer" + Date.now();
+
+    //newId = (this.state.timers[this.state.timers.length-1].id + "Timer";
     console.log("newId: " + newId);
     var newTimers = this.state.timers;
     newTimers.push(
@@ -42,10 +45,34 @@ class TimerClockPage extends Component{
       currentTimer:timerId
     });
   }
+  RemoveTimer(timerId)
+  {
+    let newTimers = this.state.timers;
+    let index = -1;
+    let isCurrent = false;
+    for(let i = 0; i < newTimers.length;  i++)
+    {
+      if(newTimers[i].id == timerId)
+      {
+        if(newTimers[i].active == true)
+          isCurrent = true;
+        index = i;
+        break;
+      }
+    }
+    if(index!=-1)
+    {
+      newTimers.splice(index,1);
+      this.setState({
+        timers:newTimers,
+        currentTimer: (isCurrent ? 0 : this.state.currentTimer)
+      });
+    }
+  }
   render()
   {
     var myTimers = this.state.timers.map((timer)=>{
-      return <Timer name={timer.id} active={timer.active} key={timer.id} click={this.SetActiveTimer}/>
+      return <Timer name={timer.id} active={timer.active} key={timer.id} playPause={this.SetActiveTimer} remove={this.RemoveTimer}/>
     });
 
     return(
@@ -60,45 +87,6 @@ class TimerClockPage extends Component{
   }
 }
 
-class Timer extends Component{
-  constructor(props)
-  {
-    super(props);
-    this.state = {
-      tickCounter:0
-    };
-    this.tick = this.tick.bind(this);
-    this.click = this.click.bind(this);
-  }
-  click()
-  {
-    this.props.click(this.props.name);
-  }
-  tick()
-  {
-    var newValue = this.state.tickCounter+1;
-    this.setState({
-      tickCounter:newValue
-    });
-  }
-  render()
-  {
-    if(this.props.active == true)
-    {
-      if(this.intervalId == null)
-      {
-        this.intervalId = setInterval(this.tick,50);
-      }
-    }
-    else if(this.intervalId != null)
-    {
-      clearInterval(this.intervalId);
-      this.intervalId = null;
-    }
-    return (
-      <div onClick={this.click}>{this.props.name}: {this.props.active}: {this.state.tickCounter}</div>
-    );
-  }
-}
 
-export default TimerClockPage;
+
+export default TimerClockPage;*/
