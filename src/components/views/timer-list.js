@@ -4,7 +4,7 @@ import '../../App.css';
 import '../../animate.css';
 import store from '../../store';
 import { removeTimer, setActiveTimer, updateTimer } from '../../actions/timerset-actions';
-import {Button,CardPanel, Row, Col} from 'react-materialize';
+import {Panel, Button, ButtonGroup, Col, Glyphicon} from 'react-bootstrap';
 
 class Timer extends Component{
   constructor(props)
@@ -65,13 +65,11 @@ class Timer extends Component{
   {
     return (
       <div>
-        <Col s={2}>
-          <CardPanel  className="teal lighten-4 black-text">
-            <div>{Math.floor(this.props.timer.time/1000)}</div>
-            <span onClick={this.removeTimer}>X</span>
-            <Button floating icon={((this.props.timer.active)?"pause":"play_arrow")} waves="light" className='green' onClick={this.playPause} small>
-            </Button>
-          </CardPanel>
+        <Col>
+          <span onClick={this.removeTimer}>X</span>
+             {Math.floor(this.props.timer.time/1000)}
+            <Button bsStyle={(this.props.timer.active)?"danger":"success"} onClick={this.playPause}><Glyphicon glyph={(this.props.timer.active)?"pause":"play"} /></Button>
+     
         </Col>
     </div>
     );

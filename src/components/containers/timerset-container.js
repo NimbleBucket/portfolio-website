@@ -5,8 +5,8 @@ import '../../animate.css';
 import store from '../../store';
 import { addTimer } from '../../actions/timerset-actions';
 import Timer from '../views/timer-list';
-import {Button,CardPanel, Row, Col} from 'react-materialize';
 //import TimerSetLayout from '../layouts/timerset-layout';
+import {Grid, Row, Button} from 'react-bootstrap';
 
 class TimerSetContainer extends Component{
   constructor(props)
@@ -32,11 +32,13 @@ class TimerSetContainer extends Component{
     return(
       <div>
       <p>TimerClockPage</p>
-      <Button className="Green-Btn Button animated bounce" onClick = {this.AddTimer} >AddcurrentTimer: {this.props.currentTimer}
+      <Button className="animated bounce" onClick = {this.AddTimer} >Add
       </Button>
-      <Row>
-      {myTimers}
-      </Row>
+      <Grid>
+        <Row>
+        {myTimers}
+        </Row>
+      </Grid>
       </div>
     );
   }
