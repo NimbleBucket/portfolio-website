@@ -16,6 +16,7 @@ class TimerSetContainer extends Component{
   }
   AddTimer()
   {
+    console.log("test");
     store.dispatch(addTimer([{
       time:0,
       id:Date.now(),
@@ -31,8 +32,8 @@ class TimerSetContainer extends Component{
     return(
       <div>
       <p>TimerClockPage</p>
-      <div className="Green-Btn Button animated bounce" onClick = {this.AddTimer} >Add<br />currentTimer: {this.props.currentTimer}
-      </div>
+      <Button className="Green-Btn Button animated bounce" onClick = {this.AddTimer} >AddcurrentTimer: {this.props.currentTimer}
+      </Button>
       <Row>
       {myTimers}
       </Row>
