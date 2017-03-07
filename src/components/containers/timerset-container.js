@@ -32,16 +32,20 @@ class TimerSetContainer extends Component{
     return(
       <div>
       <p>TimerClockPage</p>
-      <Button className="animated bounce" onClick = {this.AddTimer} >Add
+      <Button className="animated bounce" onClick = {this.AddTimer} style={{float:"right",position: "absolute",
+    right: "40px",
+    top: "60px"}}>Add
       </Button>
-      <Grid>
-        <Row>
-          <ReactCSSTransitionGroup
-           transitionName="headerForm">
-           {myTimers}
-         </ReactCSSTransitionGroup>
-        </Row>
-      </Grid>
+          <Grid>
+            <Row>
+              <ReactCSSTransitionGroup transitionName="headerForm"
+                transitionEnterTimeout={800}
+                transitionLeaveTimeout={500}>
+               {myTimers}
+               </ReactCSSTransitionGroup>
+            </Row>
+          </Grid>
+
       </div>
     );
   }

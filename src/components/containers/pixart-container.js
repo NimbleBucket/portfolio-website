@@ -32,8 +32,7 @@ class PixArtContainer extends Component{
     this.setState({height:newHeight});
   }
   render()
-  {
-    console.log("rerender");
+  { 
     console.log(this.props.pixels);
     let myPixels = this.props.pixels.map((row,x)=>{
       let myRow = row.map((col,y)=>{

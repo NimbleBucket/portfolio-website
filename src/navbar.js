@@ -41,7 +41,9 @@ class navbar extends Component
                   <MenuItem eventKey={3.2}>Pixel Art</MenuItem>
                 </LinkContainer>
               </NavDropdown>
-              <NavItem eventKey={2} href="#">GitHub</NavItem>
+              <Navbar.Text>
+                <Navbar.Link href="http://github.com" >GitHub</Navbar.Link>
+              </Navbar.Text>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

@@ -64,14 +64,16 @@ class Timer extends Component{
   render()
   {
     return (
-      <div>
-        <Col>
-          <span onClick={this.removeTimer}>X</span>
-             {Math.floor(this.props.timer.time/1000)}
-            <Button bsStyle={(this.props.timer.active)?"danger":"success"} onClick={this.playPause}><Glyphicon glyph={(this.props.timer.active)?"pause":"play"} /></Button>
-     
+        <Col sm={6} md={3}>
+          <Panel>
+            {Math.floor(this.props.timer.time/1000)}
+            <ButtonGroup vertical style={{float:"right"}}>
+              <Button bsStyle={(this.props.timer.active)?"danger":"success"} onClick={this.playPause}><Glyphicon glyph={(this.props.timer.active)?"pause":"play"} /></Button>
+              <Button bsStyle="warning" onClick={this.removeTimer}><Glyphicon glyph="remove"/></Button>
+            </ButtonGroup>
+          </Panel>
         </Col>
-    </div>
+
     );
   }
 }
