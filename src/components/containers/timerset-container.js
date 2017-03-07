@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import '../../App.css';
-import '../../animate.css';
 import store from '../../store';
 import { addTimer } from '../../actions/timerset-actions';
 import Timer from '../views/timer-list';
 //import TimerSetLayout from '../layouts/timerset-layout';
 import {Grid, Row, Button} from 'react-bootstrap';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 class TimerSetContainer extends Component{
   constructor(props)
@@ -36,7 +36,10 @@ class TimerSetContainer extends Component{
       </Button>
       <Grid>
         <Row>
-        {myTimers}
+          <ReactCSSTransitionGroup
+           transitionName="headerForm">
+           {myTimers}
+         </ReactCSSTransitionGroup>
         </Row>
       </Grid>
       </div>

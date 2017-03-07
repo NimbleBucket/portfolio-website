@@ -1,1 +1,23 @@
 
+@import "./animate.css";
+@import "./magic.css";
+
+.headerForm-enter {
+    animation: 0.8s boingInUp ease;
+}
+
+.headerForm-leave {
+    animation: .5s openDownLeftOut ease;
+}
+
+.square {
+    width: 25px;
+    height: 25px;
+    margin: 1px;
+}
+
+.sidebar{
+  width:100px;
+  height:100%;
+  margin: 1px;
+}

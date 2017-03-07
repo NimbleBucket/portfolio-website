@@ -24,7 +24,7 @@ class navbar extends Component
   render() {
     return (
       <div>
-        <Navbar collapseOnSelect>
+        <Navbar collapseOnSelect fixedTop>
           <Navbar.Header>
             <Navbar.Brand>
               <p>NimbleBucket</p>
@@ -32,25 +32,20 @@ class navbar extends Component
             <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>
-            <Nav>
-              <NavItem eventKey={1} href="#">Link</NavItem>
-              <NavItem eventKey={2} href="#">Link</NavItem>
-              <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                <MenuItem eventKey={3.1}>Action</MenuItem>
-                <MenuItem eventKey={3.2}>Another action</MenuItem>
-                <MenuItem eventKey={3.3}>Something else here</MenuItem>
-                <MenuItem divider />
-                <MenuItem eventKey={3.3}>Separated link</MenuItem>
-              </NavDropdown>
-            </Nav>
             <Nav pullRight>
-              <LinkContainer to="/Timer" activeClassName="active">
-                <NavItem eventKey={1}>Timers</NavItem>
-              </LinkContainer>
+              <NavDropdown eventKey={3} title="Projects" id="basic-nav-dropdown">
+                <LinkContainer to="/Timer" >
+                  <MenuItem eventKey={3.1}>Timers</MenuItem>
+                </LinkContainer>
+                <LinkContainer to="/PixelArt" >
+                  <MenuItem eventKey={3.2}>Pixel Art</MenuItem>
+                </LinkContainer>
+              </NavDropdown>
               <NavItem eventKey={2} href="#">GitHub</NavItem>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
+        <div style={{padding:"40px"}}></div>
         {this.props.children}
       </div>
     );
