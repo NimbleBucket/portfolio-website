@@ -15,7 +15,6 @@ class Home extends Component
         <Jumbotron bsStyle="secondary">
           <h1>Welcome!</h1>
           <p>The intention of this website is to show my progress in developing my web developer skills. Currently this site is created with React, Redux, and React-Bootstrap.</p>
-
         </Jumbotron>
       </div>
     );

@@ -17,6 +17,7 @@ class Timer extends Component{
     this.playPause = this.playPause.bind(this);
     this.removeTimer = this.removeTimer.bind(this);
     this.stop = this.stop.bind(this);
+    this.getTime = this.getTime.bind(this);
   }
   playPause()
   {
@@ -61,12 +62,19 @@ class Timer extends Component{
     clearInterval(this.intervalId);
     this.intervalId = null;
   }
+  getTime()
+  {
+    let seconds = Math.floor(this.props.timer.time/1000)%60;
+    let minutes = Math.floor(this.props.timer.time/1000/60)%60;
+    let hours = Math.floor(this.props.timer.time/1000/60/60)
+    return "" + hours + ":" + minutes + ":" + seconds;
+  }
   render()
   {
     return (
         <Col sm={6} md={3}>
           <Panel>
-            {Math.floor(this.props.timer.time/1000)}
+            {this.getTime()}
             <ButtonGroup vertical style={{float:"right"}}>
               <Button bsStyle={(this.props.timer.active)?"danger":"success"} onClick={this.playPause}><Glyphicon glyph={(this.props.timer.active)?"pause":"play"} /></Button>
               <Button bsStyle="warning" onClick={this.removeTimer}><Glyphicon glyph="remove"/></Button>

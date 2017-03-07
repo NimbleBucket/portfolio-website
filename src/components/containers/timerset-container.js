@@ -31,7 +31,7 @@ class TimerSetContainer extends Component{
     console.log(this.props.timers);
     return(
       <div>
-      <p>TimerClockPage</p>
+      <p style={{width:"50%"}}>Time Tracking Timers. The idea behind these timers is that they can be used to track your time doing particular tasks. Planned features: adding and editing titles and improve time display.</p>
       <Button className="animated bounce" onClick = {this.AddTimer} style={{float:"right",position: "absolute",
     right: "40px",
     top: "60px"}}>Add
